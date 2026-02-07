@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vishwaraj Cafe Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #fff7e6;
+  padding: 15px;
+}
+h1 {
+  text-align: center;
+  color: brown;
+}
+h2 {
+  color: darkgreen;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+.item {
+  background: #ffffff;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>☕ Vishwaraj Cafe</h1>
+
+<h2>Hot Drinks</h2>
+<div class="item"><span>Tea - ₹10</span><button onclick="order('Tea - 10')">Order</button></div>
+<div class="item"><span>Hot Coffee - ₹20</span><button onclick="order('Hot Coffee - 20')">Order</button></div>
+<div class="item"><span>Black Tea - ₹10</span><button onclick="order('Black Tea - 10')">Order</button></div>
+
+<h2>Snacks</h2>
+<div class="item"><span>Pohe - ₹30</span><button onclick="order('Pohe - 30')">Order</button></div>
+<div class="item"><span>Rice Plate - ₹30</span><button onclick="order('Rice Plate - 30')">Order</button></div>
+
+<h2>Cold Items</h2>
+<div class="item"><span>Sprite - ₹20</span><button onclick="order('Sprite - 20')">Order</button></div>
+<div class="item"><span>Sting Energy - ₹20</span><button onclick="order('Sting Energy - 20')">Order</button></div>
+<div class="item"><span>Butter Scotch Cone - ₹40</span><button onclick="order('Butter Scotch Cone - 40')">Order</button></div>
+
+<script>
+function order(item) {
+
+  var table = prompt("Enter Table Number:");
+  if (!table) return;
+
+  var qty = prompt("Enter Quantity:");
+  if (!qty) return;
+
+  var phone = "917666145545";
+  var msg =
+    "Hello Vishwaraj Cafe\n" +
+    "Table No: " + table + "\n" +
+    "Item: " + item + "\n" +
+    "Quantity: " + qty;
+
+  var url = "https://api.whatsapp.com/send?phone=" + phone +
+            "&text=" + encodeURIComponent(msg);
+
+  window.location.href = url;
+}
+</script>
+
+</body>
+</html>
